@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(ImageMarkup VERSION 0.1 LANGUAGES CXX)
+set(project_name ImageMarkup)
+
+project(${project_name} VERSION 1.0 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -24,20 +26,20 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(ImageMarkup
+    qt_add_executable(${project_name}
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 
 else()
-        add_executable(ImageMarkup
+        add_executable(${project_name}
             ${PROJECT_SOURCES}
         )
 endif()
 
-target_link_libraries(ImageMarkup PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(${project_name} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-install(TARGETS ImageMarkup DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+install(TARGETS ${project_name} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(ImageMarkup)
