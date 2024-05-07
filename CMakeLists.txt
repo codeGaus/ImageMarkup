@@ -39,7 +39,7 @@ endif()
 
 target_link_libraries(${project_name} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-install(TARGETS ${project_name} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+install(TARGETS ${project_name} DESTINATION bin)
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(ImageMarkup)
